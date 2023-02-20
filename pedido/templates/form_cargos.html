@@ -1,0 +1,19 @@
+<form action="{% url 'cargos' %}" method="post">
+    {% csrf_token %}
+    <fieldset>
+      <legend><h1>Cargos</h1></legend>
+      {% if error_message %}
+      <p class="error">{{error_message}}</p>
+      {% endif %}
+      <label for="descripcion">Descripcion</label>
+      <input type="text" name="descripcion">
+      <br/>
+      <input type="submit" name="Enviar">
+    </fieldset>
+</form>
+    
+    <ul>
+        {% for cargo in cargos %}
+        <li>{{cargo}}</li>
+        {% endfor %}
+    </ul>
